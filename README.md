@@ -1,8 +1,11 @@
 
-# psxavenc
+# psxavenc-hd
+*This README has been updated based on the original psxavenc.
 
 psxavenc is an open-source command-line tool for encoding audio and video data
 into formats commonly used on the original PlayStation.
+
+psxavenc-hd is an enhanced version of psxavenc that allows encoding of high-resolution STR videos. However, experimental results have shown that due to the limitations of the PSX's MDEC, it can only encode SD-quality videos up to a resolution of approximately 720×416 (around 300,000 pixels). This is because MDEC's quantization limit requires each frame to fit within 65,535 words. Most emulators also need to adhere to this restriction, making it practically impossible to play HD videos.
 
 ## Installation
 
@@ -24,7 +27,7 @@ Run `psxavenc`.
 
 ### Examples
 
-Rescale a video file to ≤320x240 pixels (preserving aspect ratio) and encode it
+Rescale a video file to ≤1280x768 pixels (preserving aspect ratio) and encode it
 into a 15fps .STR file with 37800 Hz 4-bit stereo audio and 2352-byte sectors,
 meant to be played at 2x CD-ROM speed:
 
@@ -70,3 +73,5 @@ Notes:
 - The `sbs2` format (used in some System 573 games) is simply a series of
   concatenated BS v2 frames, each padded to the size specified by the `-a`
   option, with no additional headers besides the BS frame headers.
+- For encoding with psxavenc-hd, the per-CD sector encoding process has been 
+  removed. Instead, psxavenc-hd simply encodes the entire frame as a whole.

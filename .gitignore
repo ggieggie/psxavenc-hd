@@ -9,3 +9,6 @@ build/
 
 # すべての MOV ファイルを無視
 *.mov
+
+# .DS_Store ファイルを無視
+.DS_Store
